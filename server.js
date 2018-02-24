@@ -38,7 +38,6 @@ app.use((req, res, next) => {
 // çünkü o kod'ta app.use methouyla çagırıldıgı için ve bu koddan önce oldugu için mecbur işlemiş bulunuyor
 // eğer bu kodu diğer app.use kodlarının başına alırsak diğer app.use kodlarını engelleyecektir.!!!
 
-
 app.get('/sevenler', (req, res) => {
   //res.send('<h1>Hello Express!</h1>');   // send methodunun parametresine yollayacagın obje, respond'un body kısmını oluşturacaktır.
   res.send({
