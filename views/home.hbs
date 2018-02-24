@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Some Website</title>
+  </head>
+  <body>
+    {{> header}}
+    <p>{{screamIt welcomeMessage}}</p>  <!-- ilk olarak registerHelper içerisinde "screamIt" bulunur daha sonra o fonksiyona parametre olarak ++ -->
+    <p>{{pageDesc}}</p>                                                            <!-- ++ res.render'den gelen welcomeMessage' ı yolladık -->
+
+    {{> footer}}  <!-- ">" işareti "hbs.registerPartials" de tanımladığın path'e gider ve orada footer isimli partial view dosyasını arar. -->
+  </body>
+</html>
