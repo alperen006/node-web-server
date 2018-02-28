@@ -5,6 +5,7 @@ var app = express();  // kütüphaneden bir obje oluşturduk.
 
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 // https://expressjs.com/en/starter/static-files.html
 //app.use(); methodu parametre olarak kullanmak istedigimiz middleware bir fonksiyon alır.
 app.use(express.static(__dirname + '/public'));     // static methodu parametre olarak sunmak istedigin static dosyaların yolunu alırr..
@@ -30,9 +31,10 @@ app.use((req, res, next) => { // bu şekilde kullanırsak eğer localhost:3000/ 
   next();  // next fonksiyonunu çağırmamızın nedeni kod işlemeye devam etsin diyedir yoksa burada kalacaktır.
 });
 
+/*
 app.use((req, res, next) => {
   res.render('maintenance.hbs');
-});
+});   */
 // next fonksiyonunu çağırmadığımız için kod burada kalacaktır!! ne yaparsan yap :D :D
 // fakat bu koddan önce tanımlanan app.use kodları da işlenecektir.. localhost:3000/help.html diyerek test edebilirsin..
 // çünkü o kod'ta app.use methouyla çagırıldıgı için ve bu koddan önce oldugu için mecbur işlemiş bulunuyor
@@ -99,8 +101,8 @@ app.get('/', (req, res) => {
 });       // localhost:3000/about linkine gidersen sayfaı görebilirsin.
 
 
-app.listen(3000, () => {   // bu objenin listen methodunu çağırarak 3000 no'lu portu dinleyerek çalıştığında ne olacağını da  ++
-  console.log('Server is up on port 3000 (sunucu calisiyor)');                                                // ++ fonksiyon yazarak belirttik.
+app.listen(port, () => {   // bu objenin listen methodunu çağırarak 3000 no'lu portu dinleyerek çalıştığında ne olacağını da  ++
+  console.log(`Server is up on port ${port} (sunucu calisiyor)`);                   // ++ fonksiyon yazarak belirttik.
 });
 
 // Browser'da gordukten sonra sağtık incele'ye bas( developer tool) sonra Network kısmını aç tekrar sayfayı yenile ve orada yaptığın isteği (request)
