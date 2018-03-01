@@ -82,7 +82,7 @@ hbs.registerHelper('getCurrentYear', () => {  // birçok sayfada kullanılan şe
 // ++ normal olarak da çalıstırınca saglıklı calıstı zaten pek anlasılmadı burası !
 
 hbs.registerHelper('screamIt', (text) => {
-  return text.toUpperCase();  // home.hbs içinde bu regiter'i kullandık.
+  return text.toUpperCase();  // home.hbs içinde bu register'i kullandık.
 });
 
 app.get('/about', (req, res) => {
@@ -100,6 +100,11 @@ app.get('/', (req, res) => {
   }); // render methodu bizim yukarıda yazdıgımız view engine: hbs; satırına göre kodu renderleyecektir. yani hbs olarak çevirecek.
 });       // localhost:3000/about linkine gidersen sayfaı görebilirsin.
 
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects'
+  });
+});
 
 app.listen(port, () => {   // bu objenin listen methodunu çağırarak 3000 no'lu portu dinleyerek çalıştığında ne olacağını da  ++
   console.log(`Server is up on port ${port} (sunucu calisiyor)`);                   // ++ fonksiyon yazarak belirttik.
